@@ -5,7 +5,6 @@ import shlex
 import subprocess
 import sys
 from typing import List
-
 from blessings import Terminal
 
 from conf import partitions, path
@@ -85,11 +84,17 @@ class Andividual(Individual):
         if param == 'period':
             res = minutes(int(value/2))
         elif param == 'min_periods':
-            res = int(value * 20)
+            if Andividual.strategy == 'speed':
+                res = int(value * 3000)
+            else:
+                res = int(value * 20)
         elif param == 'trend_ema':
             res = int(value*15 )
         elif 'period' in param:
-            res = int(value *10)
+            if Andividual.strategy == 'speed':
+                res = int(value * 3000)
+            else:
+                res = int(value *10)
         elif 'pct' in param:
             res = pct(value)
         elif 'rate' in param:
@@ -102,6 +107,8 @@ class Andividual(Individual):
             res = value / 1000.0
         elif 'sar_max_af' == param:
             res = pct(value)
+        elif 'trigger_factor' == param:
+            res = float(value / 30.0)
         else:
             raise ValueError(term.red(f"I don't understand {param} please add it to evaluation.py"))
         return param, res
