@@ -82,32 +82,63 @@ class Andividual(Individual):
 
     def convert(self, param, value):
         if param == 'period':
-            res = minutes(int(value/2))
+            if Andividual.strategy == 'macd':
+                res = minutes(int(value * 2))
+            elif Andividual.strategy == 'rsi_macd':
+                res = minutes(int(value))
+            elif Andividual.strategy == 'speed':
+                res = minutes(int(value / 10))
+            else:
+                res = minutes(int(value / 5))
         elif param == 'min_periods':
             if Andividual.strategy == 'speed':
                 res = int(value * 3000)
+            elif Andividual.strategy == 'rsi_macd':
+                res = int(value * 500)
             else:
-                res = int(value * 20)
+                res = int(value * 25)
         elif param == 'trend_ema':
             res = int(value*15 )
-        elif 'period' in param:
-            if Andividual.strategy == 'speed':
-                res = int(value * 3000)
+        elif param == 'ema_short_period':
+            if Andividual.strategy == 'rsi_macd':
+                res = int(value * 20)
             else:
-                res = int(value *10)
-        elif 'pct' in param:
-            res = pct(value)
-        elif 'rate' in param:
-            res = pct(value)
-        elif 'rsi' in param:
-            res = float(value)
+                res = int(value * 10)
+        elif param == 'ema_long_period':
+            if Andividual.strategy == 'rsi_macd':
+                res = int(value * 200)
+            else:
+                res = int(value * 20)
+        elif param == 'signal_period':
+            if Andividual.strategy == 'rsi_macd':
+                res = int(value * 10)
+            else:
+                res = int(value * 8)
+        elif param == 'neutral_rate':
+            res = pct(value / 5)
+        elif 'overbought_rsi' in param:
+            res = int(value)
+        elif 'oversold_rsi' in param:
+            res = int(value)
+        elif param == 'rsi_periods':
+            res = int(value * 10)
+        elif param == 'rsi_recover':
+            res = int(value / 10)
+        elif param == 'rsi_drop':
+            res = int(value / 10)
+        elif param == 'rsi_divisor':
+            res = int(value / 10)
+        elif 'srsi' in param:
+            res =(int(value))
+        elif param == 'baseline_periods':
+            res = int(value * 3000)
         elif 'threshold' in param:
             res = value/100000.0
-        elif 'sar_af' == param:
+        elif param == 'sar_af':
             res = value / 1000.0
-        elif 'sar_max_af' == param:
+        elif param == 'sar_max_af':
             res = pct(value)
-        elif 'trigger_factor' == param:
+        elif param == 'trigger_factor':
             res = float(value / 30.0)
         else:
             raise ValueError(term.red(f"I don't understand {param} please add it to evaluation.py"))
