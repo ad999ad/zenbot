@@ -1,3 +1,7 @@
+// YOU MUST ADD THESE TWO LINES ON TOP OF 'deepqlearn.js' file:
+// var convnetjs = require(__dirname+'/convnet.js');
+// var cnnutil = require(__dirname+'/util.js');
+
 var z = require('zero-fill')
   , n = require('numbro')
   , deepqlearn = require('../../../node_modules/convnetjs/build/deepqlearn.js')
