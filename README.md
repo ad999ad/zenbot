@@ -358,7 +358,7 @@ From left to right:
 
 ### About the macd strategy
 
-The moving average convergence divergence calculation is a lagging indicator, used to follow trends. 
+The moving average convergence divergence calculation is a lagging indicator, used to follow trends.
 
 - Can be very effective for trading periods of 1h, with a shorter period like 15m it seems too erratic and the Moving Averages are kind of lost.
 - It's not firing multiple 'buy' or 'sold' signals, only one per trend, which seems to lead to a better quality trading scheme.
@@ -473,6 +473,10 @@ zenbot sell gdax.BTC-USD --pct=10
 ## Donate
 
 P.S., some have asked for how to donate to Zenbot development. I accept donations at **my Bitcoin address** Here:
+
+### gelotus's BTC
+
+`1a2gWsePbgC7DNCN6yNFWqHAPotvpyXLN`
 
 ### carlos8f's BTC
 
