@@ -34,3 +34,5 @@ zen/__pycache__/
 zen/temp\.html
 
 *.pyc
+
+package-lock\.json
