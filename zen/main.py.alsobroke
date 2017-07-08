@@ -29,7 +29,6 @@ def main(instrument, days, popsize, strategy='trend_ema', nobf=None):
 def bkfcmd():
     run(f"cd {path} && fab backfill_local:\"{INSTRUMENT},{TOTAL_DAYS}\"", shell=True)
 #, stdout=DEVNULL)
-# that dinitely breaks for me
     return
 
 if __name__ == '__main__':
@@ -48,11 +47,10 @@ if __name__ == '__main__':
         strategy = 'trend_ema'
     try:
         nobf = sys.argv[5]
-        bkf = False
         if nobf == "backfill":
             bkf = True
     except:
-       	bkf = False
+        bkf = True #False
     if bkf == True:
         print(term.green("Auto backfilling is ON"))
         print(term.green("Executing inital backfilling, please wait..."))
@@ -64,8 +62,8 @@ if __name__ == '__main__':
         print(term.green(f"Auto backfilling interval is {bkfint} secs"))
         ThreadTimer(bkfint, bkfcmd)
     else:
-        print(term.red("You don\'t have enabled autobackfill,"))
+        print(term.red("You don\'t have autobackfill enabled,"))
         print(term.red("MAKE SURE YOU RUN fab backfill_local:\"<selector>,<days>\""))
-        print(term.red("otherwise it's all crap"))
+        print(term.red("otherwise it's all crap, so I am vetoeing your decision"))
     res = main(INSTRUMENT, TOTAL_DAYS, popsize, strategy)
     print(res)

@@ -6,13 +6,14 @@ runid=random.randint(1000,9999)
 # User configurable parameters:
 
 # zenbot dir, ex. "app/zenbot" for docker "/full/path/of/zenbot/dir" for linux envinronment
-path = '/home/gecko/zenbot'
+#path = '/home/gecko/zenbot'
+path = '/app'
 
 # name of python executable
 pyexc = 'python3.6'
 
 # Autobackfill interval in seconds, min 600 secs -> 10 mins
-bkfint = 1800
+bkfint = 600
 
 # Draw graph, on or off, for this is needed pygraphviz module, actual this is in non working state, keep off
 dgraph = 'off'
@@ -20,6 +21,11 @@ dgraph = 'off'
 # You can edit this, please respect the python dict syntax
 selectors = {
     'BTC-CUR': ['gdax.BTC-USD', 'gdax.BTC-EUR', 'gdax.BTC-GBP'],
+    'BTC-USD': ['gdax.BTC-USD'],
+    'BTC-EUR': ['gdax.BTC-EUR'],
+    'BTC-GBP': ['gdax.BTC-GBP'],
+    'LTC-USD': ['gdax.LTC-USD'],
+    'LTC-BTC': ['gdax.LTC-BTC'],
     'ETH-BTC': ['gdax.ETH-BTC'],
     'ETH-EUR': ['gdax.ETH-EUR'],
     'ETH-USD': ['gdax.ETH-USD'],
@@ -42,4 +48,4 @@ indpb  = 0.3
 mutpb = 0.3
 
 # Ditto
-cxpb = 0.3
+cxpb = 0.5
