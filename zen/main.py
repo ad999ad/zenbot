@@ -48,8 +48,9 @@ if __name__ == '__main__':
         nobf = sys.argv[5]
         if nobf == "backfill":
             bkf = True
-    except:
-        bkf = False
+        else:
+            bkf = False
+    except: bkf = False
     if bkf == True:
         print(term.green("Auto backfilling is ON"))
         print(term.green("Executing inital backfilling, please wait..."))
