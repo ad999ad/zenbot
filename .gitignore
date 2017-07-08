@@ -15,7 +15,7 @@ data/*
 conf.js
 conf-*
 conf_*
-!conf-sample.js
+!conf-sample.*
 sim_result*
 *_test
 backtesting_*
@@ -35,4 +35,4 @@ zen/temp\.html
 
 *.pyc
 
-package-lock\.json
+zen/conf\.py

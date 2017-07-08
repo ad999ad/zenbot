@@ -6,7 +6,7 @@ runid=random.randint(1000,9999)
 # User configurable parameters:
 
 # zenbot dir, ex. "app/zenbot" for docker "/full/path/of/zenbot/dir" for linux envinronment
-path = '/home/gecko/zenbot'
+path = '/home/<user>/zenbot'
 
 # name of python executable
 pyexc = 'python3.6'
