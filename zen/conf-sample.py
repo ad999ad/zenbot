@@ -5,11 +5,11 @@ runid=random.randint(1000,9999)
 
 # User configurable parameters:
 
-# zenbot dir, ex. "app/zenbot" for docker "/full/path/of/zenbot/dir" for linux envinronment
-path = '/home/<user>/zenbot'
+# zenbot dir, ex. "/app" for docker or "/full/path/of/zenbot/dir" for linux envinronment
+path = '/app'
 
 # name of python executable
-pyexc = 'python3.6'
+pyexc = 'python'
 
 # Autobackfill interval in seconds, min 600 secs -> 10 mins
 bkfint = 1800
