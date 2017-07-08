@@ -1,1 +1,1 @@
-from conf import path, pyexc, selectors
+from . conf import path, pyexc, selectors
