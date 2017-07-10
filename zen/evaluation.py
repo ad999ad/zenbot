@@ -84,43 +84,51 @@ class Andividual(Individual):
         if param == 'period':
             if Andividual.strategy == 'macd':
                 res = minutes(int(value * 2))
-            elif Andividual.strategy == 'rsi_macd':
+            elif '_macd' in Andividual.strategy:
                 res = minutes(int(value))
             elif Andividual.strategy == 'speed':
                 res = minutes(int(value / 10))
             else:
-                res = minutes(int(value / 5))
+                res = minutes(int(value / 4))
         elif param == 'min_periods':
             if Andividual.strategy == 'speed':
-                res = int(value * 3000)
-            elif Andividual.strategy == 'rsi_macd':
-                res = int(value * 500)
+                res = int(value * 1000)
+            elif Andividual.strategy == 'srsi_macd':
+                res = int(value * 250)
             else:
-                res = int(value * 25)
+                res = int(value * 20)
         elif param == 'trend_ema':
             res = int(value*15 )
         elif param == 'ema_short_period':
-            if Andividual.strategy == 'rsi_macd':
+            if Andividual.strategy == 'srsi_macd':
                 res = int(value * 20)
             else:
                 res = int(value * 10)
         elif param == 'ema_long_period':
-            if Andividual.strategy == 'rsi_macd':
+            if Andividual.strategy == 'srsi_macd':
                 res = int(value * 200)
             else:
                 res = int(value * 20)
         elif param == 'signal_period':
-            if Andividual.strategy == 'rsi_macd':
+            if Andividual.strategy == 'srsi_macd':
                 res = int(value * 10)
             else:
                 res = int(value * 8)
         elif param == 'neutral_rate':
             res = pct(value / 5)
+        elif param == 'oversold_cci':
+            res = int(value * -8)
+        elif param == 'overbought_cci':
+            res = int(value * 10)
+        elif param == 'constant':
+            res = value / 2000
         elif 'overbought_rsi' in param:
             res = int(value)
         elif 'oversold_rsi' in param:
             res = int(value)
         elif param == 'rsi_periods':
+            res = int(value * 10)
+        elif param == 'cci_periods':
             res = int(value * 10)
         elif param == 'rsi_recover':
             res = int(value / 10)
@@ -128,14 +136,18 @@ class Andividual(Individual):
             res = int(value / 10)
         elif param == 'rsi_divisor':
             res = int(value / 10)
-        elif 'srsi' in param:
-            res =(int(value))
+        elif param == 'srsi_periods':
+            res =(int(value * 10))
+        elif param == 'srsi_k':
+            res =(int(value / 2))
+        elif param == 'srsi_d':
+            res =(int(value / 2))
         elif param == 'baseline_periods':
             res = int(value * 3000)
         elif 'threshold' in param:
-            res = value/100000.0
+            res = value/1000.0
         elif param == 'sar_af':
-            res = value / 1000.0
+            res = value / 100.0
         elif param == 'sar_max_af':
             res = pct(value)
         elif param == 'trigger_factor':
