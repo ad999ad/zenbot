@@ -36,3 +36,5 @@ zen/temp\.html
 *.pyc
 
 zen/conf\.py
+
+*.html
