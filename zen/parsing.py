@@ -13,13 +13,11 @@ def parse_trades(stuff):
 
 
 def args_for_strategy(strat):
-    available = subprocess.check_output(shlex.split('{path}/zenbot.sh list-strategies'.format(path=path)))
+    available = subprocess.check_output(shlex.split(f'{path}/zenbot.sh list-strategies'))
     strats = [strat.strip() for strat in available.split(b'\n\n')]
     groups = [group.splitlines() for group in strats]
     output = {split[0].split()[0]: split[1:] for split in groups if split}
-    result = {strategy: [line.strip().strip(b'-').split(b'=')[0] for line in lines if b'--' in line] for strategy, lines
-              in
-              output.items()}
-    result = {key.decode(): [p.decode() for p in val] for key, val in result.items()}
-
+    result = {strategy: [(line.strip().strip(b'-').split(b'=')[0], line.split(b':')[-1].strip().split(b'auto)')[0].split(b'm)')[0].split(b')')[0])
+    for line in lines if b'--' in line] for strategy, lines in output.items()}
+    result = {key.decode(): [map(lambda p: p.decode(), p) for p in val] for key, val in result.items()}
     return result[strat]

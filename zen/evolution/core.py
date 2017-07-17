@@ -1,8 +1,6 @@
 import random
-
 from deap.tools import History, Statistics
 from blessings import Terminal
-
 from conf import cxpb, mutpb
 from .utils import log_stuff
 
@@ -14,7 +12,7 @@ def algorithm(individual,popsize,map,evaluate,select,breed,mutate,stats,history,
     print(term.blue("Sampling an initial valid population, this may take a while..."))
     while len(population) < popsize:
         print(term.blue(f"\nCurrently {len(population)} valid individuals"))
-        would_be = [individual() for _ in range(popsize)]
+        would_be = [individual() for _ in range(popsize-len(population))]
         evaluate_group(would_be,map,evaluate)
         population = population | set(would_be)
     # Commence evolution

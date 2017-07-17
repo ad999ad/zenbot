@@ -20,7 +20,7 @@ module.exports = function container (get, set, clear) {
       this.option('oversold_cci', 'buy when CCI reaches or drops below this value', Number, -90)
       this.option('overbought_cci', 'sell when CCI reaches or goes above this value', Number, 140)
       this.option('constant', 'constant', Number, 0.015)
-      console.log('If you have questions about this strategy, contact me... @talvasconcelos');
+      
     },
 
     calculate: function (s) {

@@ -17,6 +17,9 @@ bkfint = 1800
 # Draw graph, on or off, for this is needed pygraphviz module, actual this is in non working state, keep off
 dgraph = 'off'
 
+# Pct of deviation of default value params for initial sample pops
+rnddev = 30
+
 # You can edit this, please respect the python dict syntax
 selectors = {
     'BTC-CUR': ['gdax.BTC-USD', 'gdax.BTC-EUR', 'gdax.BTC-GBP'],
@@ -41,5 +44,5 @@ indpb  = 0.3
 # Ditto
 mutpb = 0.3
 
-# Ditto
+# Cohefficient of population breed:
 cxpb = 0.3

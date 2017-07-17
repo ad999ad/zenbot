@@ -7,7 +7,7 @@ module.exports = function container (get, set, clear) {
     description: 'Buy when (MACD - Signal > 0) and sell when (MACD - Signal < 0).',
 
     getOptions: function () {
-      this.option('period', 'period length', String, '1h')
+      this.option('period', 'period length', String, '60m')
       this.option('min_periods', 'min. number of history periods', Number, 52)
       this.option('ema_short_period', 'number of periods for the shorter EMA', Number, 12)
       this.option('ema_long_period', 'number of periods for the longer EMA', Number, 26)
