@@ -82,6 +82,8 @@ class Andividual(Individual):
             res = float(value)
         elif param == 'trigger_factor':
             res = float(value)
+        elif param == 'constant':
+            res =float(value)
         elif 'sar_' in param:
             res = float(value)
         elif 'treshold' in param:
@@ -98,7 +100,7 @@ def evaluate_zen(cmdline:str, days: int):
             cmd = ' '.join([cmdline, period])
             f,t = runzen(cmd)
             fitness.append(f)
-            if t<=0:
+            if t<=0.2:
                 raise subprocess.CalledProcessError(-1,'TooFewTrades')
         sys.stdout.write('.')
     except subprocess.CalledProcessError:
