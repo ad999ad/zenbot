@@ -26,7 +26,6 @@ def algorithm(individual,popsize,map,evaluate,select,breed,mutate,stats,history,
         evaluate_group(offspring + mutants, map,evaluate)
         survivors = select(set(offspring) | set(mutants) | population)
         population = survivors
-
     return hof
 
 def evaluate_group(population, map, evaluate):
