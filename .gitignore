@@ -17,8 +17,15 @@ conf-*
 conf_*
 !conf-sample.*
 sim_result*
+trade_result*
 *_test
 backtesting_*
+models/*.json
+models/*.html
+*.pyc
+*.swp
+temp.html
+logs
 
 .ipynb_checkpoints
 data.csv
